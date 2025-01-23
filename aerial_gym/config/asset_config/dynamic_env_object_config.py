@@ -12,6 +12,7 @@ LEFT_WALL_SEMANTIC_ID = 11
 RIGHT_WALL_SEMANTIC_ID = 12
 BOTTOM_WALL_SEMANTIC_ID = 13
 TOP_WALL_SEMANTIC_ID = 14
+LANDING_BASE_SEMANTIC_ID = 15
 
 
 class asset_state_params:
@@ -538,3 +539,60 @@ class back_wall(asset_state_params):
     per_link_semantic = False
     semantic_id = BACK_WALL_SEMANTIC_ID
     color = [100, 200, 210]
+
+class landing_base_asset_params(asset_state_params):
+    num_assets = 1
+
+    asset_folder = f"{AERIAL_GYM_DIRECTORY}/resources/models/environment_assets/landing_bases"
+
+    collision_mask = 1  # objects with the same collision mask will not collide
+
+    min_position_ratio = [0.3, 0.05, 0.05]  # max position as a ratio of the bounds
+    max_position_ratio = [0.85, 0.95, 0.95]  # min position as a ratio of the bounds
+
+    specified_position = [
+        -1000.0,
+        -1000.0,
+        -1000.0,
+    ]  # if > -900, use this value instead of randomizing   the ratios
+
+    min_euler_angles = [0.0, 0.0, -np.pi / 3.0]  # min euler angles
+    max_euler_angles = [0.0, 0.0, np.pi / 3.0]  # max euler angles
+
+    min_state_ratio = [
+        0.3,
+        0.05,
+        0.05,
+        0.0,
+        0.0,
+        -np.pi / 3.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+    ]
+    max_state_ratio = [
+        0.85,
+        0.95,
+        0.95,
+        0.0,
+        0.0,
+        np.pi / 3.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+    ]
+
+    keep_in_env = True
+
+    collapse_fixed_joints = True
+    per_link_semantic = False
+    semantic_id = -1  # will be assigned incrementally per instance
+    color = [170, 66, 66]

@@ -37,13 +37,14 @@ class DynamicEnvironmentCfg:
             "panels": False,
             "thin": False,
             "trees": False,
-            "objects": True,
+            "objects": False,
             "left_wall": False,
             "right_wall": False,
             "back_wall": False,
             "front_wall": False,
             "top_wall": False,
             "bottom_wall": False,
+            "landing_base": True
         }
 
         # maps the above names to the classes defining the assets. They can be enabled and disabled above in include_asset_type
@@ -58,4 +59,5 @@ class DynamicEnvironmentCfg:
             "front_wall": front_wall,
             "bottom_wall": bottom_wall,
             "top_wall": top_wall,
+            "landing_base": landing_base_asset_params,
         }
